@@ -1,0 +1,31 @@
+# OS
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
+# Build
+/build/
+/out/
+/target/
+/bin/
+.gradle/
+
+# Logs
+*.log
+
+# Java
+*.class
+
+# JAR
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Node
+node_modules/
+
+# Docker & env
+.env
+.env.*
+!.env.example          # boleh commit contoh kosong

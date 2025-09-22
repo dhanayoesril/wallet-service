@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'org.flywaydb.flyway' version '7.15.0'
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(11) }
+}
+
+flyway {
+    url = System.getenv("DB_JDBC_URL") ?: "jdbc:postgresql://localhost:5432/wallet_db"
+    user = System.getenv("DB_USER") ?: "user"
+    password = System.getenv("DB_PASSWORD") ?: "secret"
+    schemas = ['public']
+    locations = ['filesystem:src/main/resources/db/migration']
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    implementation 'org.postgresql:postgresql:42.7.4'
+    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+}
+
+application {
+    mainClass = 'com.wallet.Main'
+}
