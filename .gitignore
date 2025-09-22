@@ -28,4 +28,4 @@ node_modules/
 # Docker & env
 .env
 .env.*
-!.env.example          # boleh commit contoh kosong
+!.env.example
