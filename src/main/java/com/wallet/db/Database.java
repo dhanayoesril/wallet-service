@@ -16,11 +16,7 @@ public class Database {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-            Config.dbUrl(),
-            Config.dbUser(),
-            Config.dbPass()
-        );
+        return DataSourceProvider.get().getConnection();
     }
 
     public static int ping() throws SQLException {
